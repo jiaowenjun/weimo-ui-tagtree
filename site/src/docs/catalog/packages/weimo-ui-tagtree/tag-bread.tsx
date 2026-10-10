@@ -1,10 +1,14 @@
 import { ComponentPreviewCard } from 'weimo-ui-core/components/component-preview-card'
 import { TagBread } from 'weimo-ui-tagtree/components/tag-bread'
 import type { ComponentDefinition } from '../../component-docs'
+import { ComponentCardTitle } from '../../component-card-title'
 
 function TagBreadDemo() {
   return (
-    <ComponentPreviewCard className="tag-page__card" label="标签面包屑">
+    <ComponentPreviewCard
+      className="tag-page__card"
+      label={<ComponentCardTitle componentName="tag-bread">标签面包屑</ComponentCardTitle>}
+    >
       <div className="tag-page__canvas">
         <div className="tag-page__bread-preview">
           <TagBread tag="文学/古代/诗词" onSelect={() => {}} />

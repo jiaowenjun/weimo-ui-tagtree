@@ -14,6 +14,7 @@ import {
 } from 'weimo-ui-tagtree/components/tag-tree-model'
 import { TagTreeRow } from 'weimo-ui-tagtree/components/tag-tree-row'
 import type { ComponentDefinition } from '../../component-docs'
+import { ComponentCardTitle } from '../../component-card-title'
 
 const writingTreeNode: TagTreeNode = {
   tag: 'writing',
@@ -44,7 +45,11 @@ function TagTreeDemo({ variant = 'default' }: { variant?: TagTreeVariant }) {
   return (
     <ComponentPreviewCard
       className="tag-page__card"
-      label={variant === 'default' ? '标签树' : '无操作标签树'}
+      label={
+        <ComponentCardTitle componentName="tag-tree">
+          {variant === 'default' ? '标签树' : '无操作标签树'}
+        </ComponentCardTitle>
+      }
     >
       <div className="tag-page__canvas">
         <div className="tag-page__tree-panel">
@@ -86,7 +91,11 @@ function TagTreeRowDemo() {
   }
 
   return (
-    <ComponentPreviewCard align="center" className="tag-page__card" label="标签树行">
+    <ComponentPreviewCard
+      align="center"
+      className="tag-page__card"
+      label={<ComponentCardTitle componentName="tag-tree-row">标签树行</ComponentCardTitle>}
+    >
       <div className="tag-page__canvas">
         <div className="tag-page__tree-panel">
           <div aria-label="TagTreeRow preview" className="tag-tree" role="tree">
