@@ -60,7 +60,8 @@
     "test:typecheck": "pnpm typecheck",
     "test": "vitest run",
     "check:package": "pnpm build && publint && attw --pack . --profile esm-only --ignore-rules internal-resolution-error",
-    "verify": "pnpm typecheck && pnpm test && pnpm check:package && pnpm --dir site build",
+    "test:site-template": "node scripts/site-template-contract.mjs",
+    "verify": "pnpm typecheck && pnpm test && pnpm test:site-template && pnpm check:package && pnpm --dir site build",
     "prepack": "pnpm build"
   },
   "dependencies": {
