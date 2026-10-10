@@ -201,8 +201,8 @@ importers:
         specifier: ^5.0.3
         version: 5.0.3(vite@8.3.4(jiti@2.7.0))
       weimo-ui-core:
-        specifier: git+https://github.com/jiaowenjun/weimo-ui-core.git#c33998058e694b115e6576ef8609ea1d9c8d49e0
-        version: https://codeload.github.com/jiaowenjun/weimo-ui-core/tar.gz/c33998058e694b115e6576ef8609ea1d9c8d49e0(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        specifier: git+https://github.com/jiaowenjun/weimo-ui-core.git#57b6e390c3afcbbbd32720e792e7852fed8e9d83
+        version: https://codeload.github.com/jiaowenjun/weimo-ui-core/tar.gz/57b6e390c3afcbbbd32720e792e7852fed8e9d83(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
 
   site:
     dependencies:
@@ -222,14 +222,14 @@ importers:
         specifier: 8.4.0
         version: 8.4.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       weimo-ui-core:
-        specifier: git+https://github.com/jiaowenjun/weimo-ui-core.git#c33998058e694b115e6576ef8609ea1d9c8d49e0
-        version: https://codeload.github.com/jiaowenjun/weimo-ui-core/tar.gz/c33998058e694b115e6576ef8609ea1d9c8d49e0(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        specifier: git+https://github.com/jiaowenjun/weimo-ui-core.git#57b6e390c3afcbbbd32720e792e7852fed8e9d83
+        version: https://codeload.github.com/jiaowenjun/weimo-ui-core/tar.gz/57b6e390c3afcbbbd32720e792e7852fed8e9d83(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       weimo-ui-tagtree:
         specifier: workspace:*
         version: link:..
       weimo-ui-template:
-        specifier: git+https://github.com/jiaowenjun/weimo-ui-template.git#a3859fc4f1b681d636c0a78710ec594806522e35
-        version: https://codeload.github.com/jiaowenjun/weimo-ui-template/tar.gz/a3859fc4f1b681d636c0a78710ec594806522e35(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(weimo-ui-core@https://codeload.github.com/jiaowenjun/weimo-ui-core/tar.gz/c33998058e694b115e6576ef8609ea1d9c8d49e0(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
+        specifier: git+https://github.com/jiaowenjun/weimo-ui-template.git#68b6b093829d87d8d0e9294628f0464cda691edc
+        version: https://codeload.github.com/jiaowenjun/weimo-ui-template/tar.gz/68b6b093829d87d8d0e9294628f0464cda691edc(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(weimo-ui-core@https://codeload.github.com/jiaowenjun/weimo-ui-core/tar.gz/57b6e390c3afcbbbd32720e792e7852fed8e9d83(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
     devDependencies:
       '@tailwindcss/vite':
         specifier: ^4.3.3
@@ -250,7 +250,7 @@ importers:
         specifier: ~7.0.2
         version: 7.0.2
       vite:
-        specifier: ^8.3.3
+        specifier: ^8.3.4
         version: 8.3.4(jiti@2.7.0)
 
 packages:
@@ -267,9 +267,8 @@ packages:
     resolution: {integrity: sha512-9ytjzGwxjm9Uz7I9avfbt5vlQt6uk9uRRESzJjqrznl6WKvI6dwYTo+vJ3U02Wrq/mR3iql/PzhvHhKdJIAjDQ==}
     engines: {node: '>=20'}
 
-  '@babel/runtime@7.29.10':
-    resolution: {integrity: sha512-NpugTzbKgGrNe45Ui32cN8vCFFMxVtP/9rtfwv0nP5FRDAjvYBxJcLVpYA9mr1jxP6cnIT7x9LUzuDTbWYYNRA==}
-    engines: {node: '>=6.9.0'}
+  '@babel/runtime@8.0.7':
+    resolution: {integrity: sha512-k0hagDDq/6w4v+0Sp4wFvIz/yswH5O7Va6aRTnD7N62Tnborp4X+YB+H3XUcWVSR4aE47WPEXiIIZchBs0GmYg==}
 
   '@base-ui/react@1.9.0':
     resolution: {integrity: sha512-S8CSYosASBKtpL8SWUfS78rFElfLijiCgA7oHOK22jCJ95FULsYyKwBNFOgudt0RA+/7yNc7F81bOvQnRgbBiQ==}
@@ -1330,17 +1329,16 @@ packages:
       jsdom:
         optional: true
 
-  weimo-ui-core@https://codeload.github.com/jiaowenjun/weimo-ui-core/tar.gz/c33998058e694b115e6576ef8609ea1d9c8d49e0:
-    resolution: {gitHosted: true, integrity: sha512-lqe28XVa1VaBeIfad+GBFlKHX2LFVUndb5tG7R6Hlo+sOY9/KKcEqEDTi/vf8tgG8O8PEtmWXUyOgOKmKeDz+g==, tarball: https://codeload.github.com/jiaowenjun/weimo-ui-core/tar.gz/c33998058e694b115e6576ef8609ea1d9c8d49e0}
+  weimo-ui-core@https://codeload.github.com/jiaowenjun/weimo-ui-core/tar.gz/57b6e390c3afcbbbd32720e792e7852fed8e9d83:
+    resolution: {gitHosted: true, integrity: sha512-RrIKDYfIi5mwbmyP+ngd+xK9NlKtf4G1bM2lPh1FwXvYsYHGtdV3p3bAU9jTLJMdfE5DpfXzhFpXgMYoGJ/VnA==, tarball: https://codeload.github.com/jiaowenjun/weimo-ui-core/tar.gz/57b6e390c3afcbbbd32720e792e7852fed8e9d83}
     version: 0.1.0
-    engines: {node: '>=20.19'}
     peerDependencies:
       '@base-ui/react': ^1.9.0
       react: ^19.0.0
       react-dom: ^19.0.0
 
-  weimo-ui-template@https://codeload.github.com/jiaowenjun/weimo-ui-template/tar.gz/a3859fc4f1b681d636c0a78710ec594806522e35:
-    resolution: {gitHosted: true, integrity: sha512-8D3ssA0Z8TDP6CMSde4kRa5gzXNh6QxIacCnNCnqRyalrU3h+Plun+y43hy5rTFgzYjNL3McJQCl4o3d9ey/mA==, tarball: https://codeload.github.com/jiaowenjun/weimo-ui-template/tar.gz/a3859fc4f1b681d636c0a78710ec594806522e35}
+  weimo-ui-template@https://codeload.github.com/jiaowenjun/weimo-ui-template/tar.gz/68b6b093829d87d8d0e9294628f0464cda691edc:
+    resolution: {gitHosted: true, integrity: sha512-v/qsWev0kHjVEd+FV2FNh06Asdw1ju2UOvnMTT0PKm6mFMJ+ShmZpA/W1vEYk9ANqH8ajdH66ZeQGouovH7Yfg==, tarball: https://codeload.github.com/jiaowenjun/weimo-ui-template/tar.gz/68b6b093829d87d8d0e9294628f0464cda691edc}
     version: 0.1.0
     peerDependencies:
       '@base-ui/react': ^1.9.0
@@ -1394,11 +1392,11 @@ snapshots:
       typescript: 5.6.1-rc
       validate-npm-package-name: 5.0.1
 
-  '@babel/runtime@7.29.10': {}
+  '@babel/runtime@8.0.7': {}
 
   '@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
     dependencies:
-      '@babel/runtime': 7.29.10
+      '@babel/runtime': 8.0.7
       '@base-ui/utils': 0.5.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       '@floating-ui/react-dom': 2.1.9(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       '@floating-ui/utils': 0.2.12
@@ -1410,7 +1408,7 @@ snapshots:
 
   '@base-ui/utils@0.5.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)':
     dependencies:
-      '@babel/runtime': 7.29.10
+      '@babel/runtime': 8.0.7
       '@floating-ui/utils': 0.2.12
       react: 19.3.0
       react-dom: 19.3.0(react@19.3.0)
@@ -2160,7 +2158,7 @@ snapshots:
     transitivePeerDependencies:
       - msw
 
-  weimo-ui-core@https://codeload.github.com/jiaowenjun/weimo-ui-core/tar.gz/c33998058e694b115e6576ef8609ea1d9c8d49e0(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
+  weimo-ui-core@https://codeload.github.com/jiaowenjun/weimo-ui-core/tar.gz/57b6e390c3afcbbbd32720e792e7852fed8e9d83(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
     dependencies:
       '@base-ui/react': 1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       class-variance-authority: 0.7.1
@@ -2172,14 +2170,14 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-  weimo-ui-template@https://codeload.github.com/jiaowenjun/weimo-ui-template/tar.gz/a3859fc4f1b681d636c0a78710ec594806522e35(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(weimo-ui-core@https://codeload.github.com/jiaowenjun/weimo-ui-core/tar.gz/c33998058e694b115e6576ef8609ea1d9c8d49e0(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)):
+  weimo-ui-template@https://codeload.github.com/jiaowenjun/weimo-ui-template/tar.gz/68b6b093829d87d8d0e9294628f0464cda691edc(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(weimo-ui-core@https://codeload.github.com/jiaowenjun/weimo-ui-core/tar.gz/57b6e390c3afcbbbd32720e792e7852fed8e9d83(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)):
     dependencies:
       '@base-ui/react': 1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       class-variance-authority: 0.7.1
       lucide-react: 1.54.0(@types/react@19.3.0)(react@19.3.0)
       react: 19.3.0
       react-dom: 19.3.0(react@19.3.0)
-      weimo-ui-core: https://codeload.github.com/jiaowenjun/weimo-ui-core/tar.gz/c33998058e694b115e6576ef8609ea1d9c8d49e0(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      weimo-ui-core: https://codeload.github.com/jiaowenjun/weimo-ui-core/tar.gz/57b6e390c3afcbbbd32720e792e7852fed8e9d83(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
     transitivePeerDependencies:
       - '@types/react'
 

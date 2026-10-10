@@ -54,7 +54,7 @@ for (const forbidden of [
 
 assert.equal(
   sitePackage.dependencies['weimo-ui-template'],
-  'git+https://github.com/jiaowenjun/weimo-ui-template.git#a3859fc4f1b681d636c0a78710ec594806522e35',
+  'git+https://github.com/jiaowenjun/weimo-ui-template.git#68b6b093829d87d8d0e9294628f0464cda691edc',
   'the site template dependency must stay pinned to an immutable commit',
 )
 assert.equal(

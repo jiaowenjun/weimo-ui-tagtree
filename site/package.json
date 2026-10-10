@@ -15,9 +15,9 @@
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "react-router": "8.4.0",
-    "weimo-ui-core": "git+https://github.com/jiaowenjun/weimo-ui-core.git#c33998058e694b115e6576ef8609ea1d9c8d49e0",
+    "weimo-ui-core": "git+https://github.com/jiaowenjun/weimo-ui-core.git#57b6e390c3afcbbbd32720e792e7852fed8e9d83",
     "weimo-ui-tagtree": "workspace:*",
-    "weimo-ui-template": "git+https://github.com/jiaowenjun/weimo-ui-template.git#a3859fc4f1b681d636c0a78710ec594806522e35"
+    "weimo-ui-template": "git+https://github.com/jiaowenjun/weimo-ui-template.git#68b6b093829d87d8d0e9294628f0464cda691edc"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
@@ -26,6 +26,6 @@
     "@vitejs/plugin-react": "^6.1.2",
     "tailwindcss": "^4.3.3",
     "typescript": "~7.0.2",
-    "vite": "^8.3.3"
+    "vite": "^8.3.4"
   }
 }
