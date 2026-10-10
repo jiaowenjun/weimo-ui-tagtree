@@ -1,99 +1,122 @@
-import { FolderTree } from 'lucide-react'
 import { useState } from 'react'
+import { CalendarDays, Folder, Hash } from 'lucide-react'
 
 import { ComponentPreviewCard } from 'weimo-ui-core/components/component-preview-card'
-import { LabeledSwitch } from 'weimo-ui-core/components/labeled-switch'
-import { TagTree, type TagTreeNode } from 'weimo-ui-tagtree/components/tag-tree'
+import {
+  TagTree,
+  type TagTreeNode,
+  type TagTreeVariant,
+} from 'weimo-ui-tagtree/components/tag-tree'
+import {
+  buildVisibleRows,
+  toggleExpandedTag,
+  type VisibleTagTreeRow,
+} from 'weimo-ui-tagtree/components/tag-tree-model'
+import { TagTreeRow } from 'weimo-ui-tagtree/components/tag-tree-row'
 import type { ComponentDefinition } from '../../component-docs'
 
-const nodes: TagTreeNode[] = [
+const writingTreeNode: TagTreeNode = {
+  tag: 'writing',
+  label: '写作',
+  icon: <Folder aria-hidden="true" />,
+  children: [
+    { tag: 'writing/daily', label: '日记', icon: <CalendarDays aria-hidden="true" /> },
+    { tag: 'writing/ideas', label: '灵感' },
+  ],
+}
+
+const tagTreeDemoNodes: TagTreeNode[] = [
+  writingTreeNode,
   {
-    tag: '产品',
+    tag: 'research',
+    label: '研究',
     children: [
-      { tag: '产品/设计系统' },
-      {
-        tag: '产品/功能',
-        children: [
-          { tag: '产品/功能/标签' },
-          { tag: '产品/功能/搜索' },
-        ],
-      },
+      { tag: 'research/papers', label: '论文' },
+      { tag: 'research/quotes', label: '摘录' },
     ],
   },
-  {
-    tag: '工程',
-    children: [
-      { tag: '工程/前端' },
-      { tag: '工程/后端' },
-    ],
-  },
-  { tag: '归档', menuEnabled: false },
+  { tag: 'archive', label: '归档' },
 ]
 
-function TagTreeDemo() {
-  const [selectedTag, setSelectedTag] = useState('产品/功能/标签')
-  const [showActions, setShowActions] = useState(true)
-  const [lastAction, setLastAction] = useState('尚未执行节点操作')
+function TagTreeDemo({ variant = 'default' }: { variant?: TagTreeVariant }) {
+  const [selectedTag, setSelectedTag] = useState<string | undefined>(undefined)
 
   return (
-    <div className="docs-page">
-      <header className="docs-page__intro">
-        <p className="docs-page__eyebrow">weimo-ui-tagtree/components/tag-tree</p>
-        <h1>标签树</h1>
-        <p>支持层级展开、选中祖先自动展开、行级操作菜单，以及受控或非受控的展开状态。</p>
-      </header>
-
-      <div className="docs-page__grid">
-        <ComponentPreviewCard
-          action={
-            <LabeledSwitch
-              ariaLabel="显示节点操作"
-              checked={showActions}
-              labelOff="纯导航"
-              labelOn="带操作"
-              onCheckedChange={setShowActions}
-            />
-          }
-          className="tagtree-preview-card"
-          label="交互标签树"
-          footer={
-            <div className="docs-card-footer">
-              <span className="docs-card-footer__result">已选择：{selectedTag}</span>
-              <span className="docs-card-footer__result">{lastAction}</span>
-            </div>
-          }
-        >
-          <div className="tagtree-preview-canvas">
-            <div className="tagtree-preview-panel">
-              <TagTree
-                defaultExpandedTags={['产品', '产品/功能']}
-                nodes={nodes}
-                onMenuAction={(action, tag) => setLastAction(`${action}：${tag}`)}
-                onSelect={(tag) => setSelectedTag(tag)}
-                selectedTag={selectedTag}
-                variant={showActions ? 'default' : 'no-action'}
-              />
-            </div>
-          </div>
-        </ComponentPreviewCard>
-
-        <ComponentPreviewCard
-          className="tagtree-preview-card tagtree-preview-card--compact"
-          label="空状态与默认图标"
-        >
-          <div className="tagtree-preview-canvas">
-            <div className="tagtree-preview-panel">
-              <TagTree
-                defaultIcon={<FolderTree aria-hidden="true" />}
-                emptyLabel="暂无可用标签"
-                nodes={[]}
-                variant="no-action"
-              />
-            </div>
-          </div>
-        </ComponentPreviewCard>
+    <ComponentPreviewCard
+      className="tag-page__card"
+      label={variant === 'default' ? '标签树' : '无操作标签树'}
+    >
+      <div className="tag-page__canvas">
+        <div className="tag-page__tree-panel">
+          <TagTree
+            defaultExpandedTags={['writing', 'research']}
+            defaultIcon={<Hash aria-hidden="true" />}
+            nodes={tagTreeDemoNodes}
+            onMenuAction={variant === 'default' ? () => {} : undefined}
+            onSelect={setSelectedTag}
+            selectedTag={selectedTag}
+            variant={variant}
+          />
+        </div>
       </div>
-    </div>
+    </ComponentPreviewCard>
+  )
+}
+
+const tagTreeRowDemoNodes: TagTreeNode[] = [writingTreeNode]
+
+function TagTreeRowDemo() {
+  const [expandedTags, setExpandedTags] = useState(['writing'])
+  const [selectedTag, setSelectedTag] = useState<string | undefined>(undefined)
+  const renderedRows = buildVisibleRows(
+    tagTreeRowDemoNodes,
+    new Set(expandedTags),
+    selectedTag,
+  )
+
+  function handleSelect(row: VisibleTagTreeRow) {
+    setSelectedTag(row.tag)
+    if (row.hasChildren && !row.expanded) {
+      setExpandedTags((currentTags) => toggleExpandedTag(currentTags, row.tag))
+    }
+  }
+
+  function handleToggle(row: VisibleTagTreeRow) {
+    setExpandedTags((currentTags) => toggleExpandedTag(currentTags, row.tag))
+  }
+
+  return (
+    <ComponentPreviewCard align="center" className="tag-page__card" label="标签树行">
+      <div className="tag-page__canvas">
+        <div className="tag-page__tree-panel">
+          <div aria-label="TagTreeRow preview" className="tag-tree" role="tree">
+            <div className="tag-tree__list">
+              {renderedRows.map((row) => (
+                <TagTreeRow
+                  key={row.tag}
+                  onMenuAction={() => {}}
+                  onSelect={handleSelect}
+                  onToggle={handleToggle}
+                  row={row}
+                  rowMenuEnabled={row.tag !== 'writing/ideas'}
+                  variant={row.tag === 'writing/ideas' ? 'no-action' : 'default'}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </ComponentPreviewCard>
+  )
+}
+
+function TagTreePageDemo() {
+  return (
+    <>
+      <TagTreeRowDemo />
+      <TagTreeDemo />
+      <TagTreeDemo variant="no-action" />
+    </>
   )
 }
 
@@ -102,5 +125,5 @@ export const tagTreeDefinition = {
   summary: '支持展开、选中和节点操作菜单的层级标签导航',
   status: 'Ready',
   frame: 'plain',
-  preview: () => <TagTreeDemo />,
+  preview: () => <TagTreePageDemo />,
 } satisfies ComponentDefinition
