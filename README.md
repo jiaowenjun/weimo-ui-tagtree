@@ -2,7 +2,15 @@
 
 `weimo-ui-tagtree` 是独立的标签组件包，拥有标签树和标签面包屑。它唯一的 `weimo-ui` 依赖是 `weimo-ui-core`。
 
-`weimo-ui-core` 通过 `git@github.com:jiaowenjun/weimo-ui-core.git` 获取。包通过显式子路径导出组件；包根不提供 `.` 导出。
+`weimo-ui-core` 通过 npm semver peer 契约协作。包发布编译后的 ESM、类型声明和 CSS，并通过显式子路径导出组件；包根不提供 `.` 导出。
+
+## 安装
+
+```bash
+pnpm add weimo-ui-tagtree weimo-ui-core @base-ui/react react react-dom
+```
+
+`weimo-ui-tagtree@0.1.x` 支持 `weimo-ui-core@0.1.x`；应用必须只安装一份兼容的 core 与 Base UI。
 
 ## 组件入口
 
@@ -49,7 +57,8 @@ src/
 
 ```bash
 pnpm install
-pnpm test:typecheck
+pnpm verify
+npm pack --dry-run
 ```
 
-组件的公开入口和依赖边界以本仓库的 `package.json#exports` 为准。
+`verify` 会检查类型、构建产物、公开入口和类型声明解析；组件的公开入口和依赖边界以本仓库的 `package.json#exports` 为准。

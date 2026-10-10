@@ -6,7 +6,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/jiaowenjun/weimo-ui-tagtree.git"
+    "url": "git+https://github.com/jiaowenjun/weimo-ui-tagtree.git"
+  },
+  "packageManager": "pnpm@12.4.2",
+  "publishConfig": {
+    "access": "public"
   },
   "engines": {
     "node": ">=20.19"
@@ -15,33 +19,70 @@
     "**/*.css"
   ],
   "files": [
-    "src",
-    "README.md"
+    "dist",
+    "README.md",
+    "LICENSE"
   ],
   "exports": {
-    "./components/tag-bread": "./src/components/tag-bread/tag-bread.tsx",
-    "./components/tag-tree": "./src/components/tag-tree/tag-tree.tsx",
-    "./components/tag-tree-model": "./src/components/tag-tree/tag-tree-model.ts",
-    "./components/tag-tree-row": "./src/components/tag-tree/tag-tree-row.tsx",
-    "./components/coss/breadcrumb": "./src/components/coss/breadcrumb.tsx",
-    "./components/coss/input-group": "./src/components/coss/input-group.tsx",
-    "./components/coss/scroll-area": "./src/components/coss/scroll-area.tsx"
+    "./components/tag-bread": {
+      "types": "./dist/components/tag-bread/tag-bread.d.ts",
+      "import": "./dist/components/tag-bread/tag-bread.js"
+    },
+    "./components/tag-tree": {
+      "types": "./dist/components/tag-tree/tag-tree.d.ts",
+      "import": "./dist/components/tag-tree/tag-tree.js"
+    },
+    "./components/tag-tree-model": {
+      "types": "./dist/components/tag-tree/tag-tree-model.d.ts",
+      "import": "./dist/components/tag-tree/tag-tree-model.js"
+    },
+    "./components/tag-tree-row": {
+      "types": "./dist/components/tag-tree/tag-tree-row.d.ts",
+      "import": "./dist/components/tag-tree/tag-tree-row.js"
+    },
+    "./components/coss/breadcrumb": {
+      "types": "./dist/components/coss/breadcrumb.d.ts",
+      "import": "./dist/components/coss/breadcrumb.js"
+    },
+    "./components/coss/input-group": {
+      "types": "./dist/components/coss/input-group.d.ts",
+      "import": "./dist/components/coss/input-group.js"
+    },
+    "./components/coss/scroll-area": {
+      "types": "./dist/components/coss/scroll-area.d.ts",
+      "import": "./dist/components/coss/scroll-area.js"
+    }
   },
   "scripts": {
-    "test:typecheck": "tsc -p tsconfig.json --noEmit --pretty false"
+    "clean": "rimraf dist",
+    "build": "pnpm clean && tsc -p tsconfig.build.json && node scripts/copy-css.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit --pretty false",
+    "test:typecheck": "pnpm typecheck",
+    "test": "vitest run",
+    "check:package": "pnpm build && publint && attw --pack . --profile esm-only --ignore-rules internal-resolution-error",
+    "verify": "pnpm typecheck && pnpm test && pnpm check:package",
+    "prepack": "pnpm build"
   },
   "dependencies": {
-    "@base-ui/react": "1.5.0",
-    "lucide-react": "1.24.0",
-    "weimo-ui-core": "git+ssh://git@github.com/jiaowenjun/weimo-ui-core.git"
+    "lucide-react": "^1.54.0"
   },
   "peerDependencies": {
+    "@base-ui/react": "^1.9.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "weimo-ui-core": "~0.1.0"
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.5",
+    "@base-ui/react": "1.9.0",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
-    "typescript": "~6.0.3"
+    "publint": "^0.3.25",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "rimraf": "^6.1.3",
+    "typescript": "~7.0.2",
+    "vitest": "^5.0.3",
+    "weimo-ui-core": "git+https://github.com/jiaowenjun/weimo-ui-core.git#e4aa279e6c4055c1e308f876875209f4d8b51a8b"
   }
 }
