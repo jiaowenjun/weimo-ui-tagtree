@@ -83,6 +83,5 @@ export const tagBreadDefinition = {
   summary: '标签路径字符串驱动的磨砂面包屑导航胶囊',
   status: 'Ready',
   frame: 'plain',
-  searchAliases: ['TagBread', 'Breadcrumb', '标签路径', '标签面包屑', '面包屑'],
   preview: () => <TagBreadDemo />,
 } satisfies ComponentDefinition

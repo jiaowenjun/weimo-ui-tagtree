@@ -102,6 +102,5 @@ export const tagTreeDefinition = {
   summary: '支持展开、选中和节点操作菜单的层级标签导航',
   status: 'Ready',
   frame: 'plain',
-  searchAliases: ['TagTree', 'TagTreeRow', 'TagTreeModel', '标签树', '标签树行'],
   preview: () => <TagTreeDemo />,
 } satisfies ComponentDefinition
