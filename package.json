@@ -1,0 +1,48 @@
+{
+  "name": "weimo-ui-tagtree",
+  "private": false,
+  "version": "0.1.0",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jiaowenjun/weimo-ui-tagtree.git"
+  },
+  "packageManager": "pnpm@12.4.2+sha512.08adc6613180275c7c9edada39dcf08c9c61ad4e7eaf330a4f3461f102b0f907423454d117f98e72d47fef0616070644d7bffc973a6a57f5090a6d7c368b07c9",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "exports": {
+    "./components/tag-bread": "./src/components/tag-bread/tag-bread.tsx",
+    "./components/tag-tree": "./src/components/tag-tree/tag-tree.tsx",
+    "./components/tag-tree-model": "./src/components/tag-tree/tag-tree-model.ts",
+    "./components/tag-tree-row": "./src/components/tag-tree/tag-tree-row.tsx",
+    "./components/coss/breadcrumb": "./src/components/coss/breadcrumb.tsx",
+    "./components/coss/input-group": "./src/components/coss/input-group.tsx",
+    "./components/coss/scroll-area": "./src/components/coss/scroll-area.tsx"
+  },
+  "scripts": {
+    "test:typecheck": "tsc -p tsconfig.json --noEmit --pretty false"
+  },
+  "dependencies": {
+    "@base-ui/react": "1.5.0",
+    "lucide-react": "1.24.0",
+    "weimo-ui-core": "git+ssh://git@github.com/jiaowenjun/weimo-ui-core.git"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "typescript": "~6.0.3"
+  }
+}
