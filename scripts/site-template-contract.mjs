@@ -54,8 +54,8 @@ for (const forbidden of [
 
 assert.equal(
   sitePackage.dependencies['weimo-ui-template'],
-  'git+https://github.com/jiaowenjun/weimo-ui-template.git#e43ece6686817be031270fe72fee076c1c1957a0',
-  'the site template dependency must stay pinned to an immutable commit',
+  '~0.1.0',
+  'the site template dependency must use the published npm package',
 )
 assert.equal(
   sitePackage.dependencies['class-variance-authority'],
