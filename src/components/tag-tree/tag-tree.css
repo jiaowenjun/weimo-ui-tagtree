@@ -12,12 +12,24 @@
     --tag-tree-root-body-padding-start: var(--tag-tree-row-body-padding-inline);
     --tag-tree-root-icon-center: calc(var(--tag-tree-root-body-padding-start) + (var(--tag-tree-icon-size) / 2));
 
+    /* 公开 theming hook:行悬停底色,一级悬停层降透明度做轻量版(与
+       tag-bread 行内链接同语言)。浅色 90% 是层级下限——再低时混合色
+       向卡片底收拢,60% 已与 --color-bg-selected 逐通道重合(#F2F0EE vs
+       #F1F0EE),悬停会被误读为选中;深色 hover 与 selected 令牌间距更宽
+       (Δ16),60% 仍余 Δ6.5,可与 tag-bread 取同档。 */
+
     display: grid;
     gap: 2px;
     width: 100%;
     min-width: 0;
     color: var(--color-text-primary);
     font-size: var(--font-size-base);
+
+    --tag-tree-row-hover-bg: color-mix(in srgb, var(--color-bg-hover) 90%, transparent);
+  }
+
+  .dark .tag-tree {
+    --tag-tree-row-hover-bg: color-mix(in srgb, var(--color-bg-hover) 60%, transparent);
   }
 
   .tag-tree__list {
@@ -143,7 +155,7 @@
 
   @media (hover: hover) and (pointer: fine) {
     .tag-tree__row:hover .tag-tree__row-body::before {
-      background: var(--color-bg-hover);
+      background: var(--tag-tree-row-hover-bg);
     }
 
     .tag-tree__row:hover .tag-tree__toggle,
