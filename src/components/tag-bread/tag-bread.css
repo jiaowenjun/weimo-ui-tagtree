@@ -34,7 +34,15 @@
     padding: 0 5px;
     margin: 0 -5px;
     border-radius: var(--radius-round);
-    transition: color 160ms ease;
+    transition:
+      color 160ms ease,
+      transform 150ms ease;
+  }
+
+  /* 与 capsule-button/icon-button 同款按压缩放;transform 连同 ::before
+     高亮层一起缩放,不触发布局。 */
+  .tag-bread .coss-breadcrumb__link:active {
+    transform: scale(var(--press-scale));
   }
 
   /* 悬停底色走伪元素而非链接自身背景:行盒锁 1em,自身背景画不出更高的
@@ -65,6 +73,7 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
+    .tag-bread .coss-breadcrumb__link,
     .tag-bread .coss-breadcrumb__link::before {
       transition-duration: 1ms;
     }
