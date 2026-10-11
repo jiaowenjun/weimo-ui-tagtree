@@ -7,12 +7,6 @@ import {
   type TagTreeNode,
   type TagTreeVariant,
 } from 'weimo-ui-tagtree/components/tag-tree'
-import {
-  buildVisibleRows,
-  toggleExpandedTag,
-  type VisibleTagTreeRow,
-} from 'weimo-ui-tagtree/components/tag-tree-model'
-import { TagTreeRow } from 'weimo-ui-tagtree/components/tag-tree-row'
 import type { ComponentDefinition } from '../../component-docs'
 import { ComponentCardTitle } from '../../component-card-title'
 
@@ -68,61 +62,9 @@ function TagTreeDemo({ variant = 'default' }: { variant?: TagTreeVariant }) {
   )
 }
 
-const tagTreeRowDemoNodes: TagTreeNode[] = [writingTreeNode]
-
-function TagTreeRowDemo() {
-  const [expandedTags, setExpandedTags] = useState(['writing'])
-  const [selectedTag, setSelectedTag] = useState<string | undefined>(undefined)
-  const renderedRows = buildVisibleRows(
-    tagTreeRowDemoNodes,
-    new Set(expandedTags),
-    selectedTag,
-  )
-
-  function handleSelect(row: VisibleTagTreeRow) {
-    setSelectedTag(row.tag)
-    if (row.hasChildren && !row.expanded) {
-      setExpandedTags((currentTags) => toggleExpandedTag(currentTags, row.tag))
-    }
-  }
-
-  function handleToggle(row: VisibleTagTreeRow) {
-    setExpandedTags((currentTags) => toggleExpandedTag(currentTags, row.tag))
-  }
-
-  return (
-    <ComponentPreviewCard
-      align="center"
-      className="tag-page__card"
-      label={<ComponentCardTitle componentName="tag-tree-row">标签树行</ComponentCardTitle>}
-    >
-      <div className="tag-page__canvas">
-        <div className="tag-page__tree-panel">
-          <div aria-label="TagTreeRow preview" className="tag-tree" role="tree">
-            <div className="tag-tree__list">
-              {renderedRows.map((row) => (
-                <TagTreeRow
-                  key={row.tag}
-                  onMenuAction={() => {}}
-                  onSelect={handleSelect}
-                  onToggle={handleToggle}
-                  row={row}
-                  rowMenuEnabled={row.tag !== 'writing/ideas'}
-                  variant={row.tag === 'writing/ideas' ? 'no-action' : 'default'}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </ComponentPreviewCard>
-  )
-}
-
 function TagTreePageDemo() {
   return (
     <>
-      <TagTreeRowDemo />
       <TagTreeDemo />
       <TagTreeDemo variant="no-action" />
     </>
