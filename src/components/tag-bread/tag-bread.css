@@ -29,10 +29,10 @@
     position: relative;
     z-index: 0;
     white-space: inherit;
-    /* 命中区横向外扩 5px 由负 margin 抵消,不改变 crumb 占宽
-       (测宽克隆与省略折叠阈值不受影响)。 */
+    /* 命中区横向 5px padding 必须保留正值外边距为零:测量克隆会把克隆内
+       所有 margin 强制清零(core 契约:外边距从不参与测量),若用负 margin
+       抵消占宽,克隆会比真实渲染每链接宽 10px,虚增全部堆到胶囊右侧。 */
     padding: 0 5px;
-    margin: 0 -5px;
     border-radius: var(--radius-round);
     transition:
       color 160ms ease,
