@@ -18,7 +18,7 @@
 .tag-page__tree-panel {
   width: min(100%, 380px);
   margin: 0 auto;
-  padding: 12px 0;
+  padding: 12px;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   background: var(--color-bg-card);
