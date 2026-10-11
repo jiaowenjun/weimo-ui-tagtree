@@ -24,6 +24,23 @@
 
   .tag-bread .coss-breadcrumb__link {
     white-space: inherit;
+    /* 行内幽灵反馈:横向 padding 由负 margin 抵消,不改变 crumb 占宽
+       (测宽克隆与省略折叠阈值不受影响);不外扩纵向,避免被列表
+       overflow: hidden 裁切。 */
+    padding: 0 5px;
+    margin: 0 -5px;
+    border-radius: var(--radius-xs);
+    transition:
+      color 160ms ease,
+      background-color 160ms ease;
+  }
+
+  /* 与 core ghost 控件同款指针门槛;bg-hover 实色对行内文字过重,
+     color-mix 降透明度做低配版,变色反馈仍由 coss-breadcrumb__link:hover 承担。 */
+  @media (hover: hover) and (pointer: fine) {
+    .tag-bread .coss-breadcrumb__link:hover {
+      background: color-mix(in srgb, var(--color-bg-hover) 60%, transparent);
+    }
   }
 
   .tag-bread .coss-breadcrumb__page {
