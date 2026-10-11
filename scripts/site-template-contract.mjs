@@ -28,8 +28,8 @@ assert.match(
 )
 assert.match(
   detailPage,
-  /from 'weimo-ui-template\/components\/card'/,
-  'component pages must consume the public template card API',
+  /from 'weimo-ui-core\/components\/component-preview-card'/,
+  'component pages must consume the standard preview card from weimo-ui-core',
 )
 assert.match(
   globalStyles,
@@ -54,7 +54,7 @@ for (const forbidden of [
 
 assert.equal(
   sitePackage.dependencies['weimo-ui-template'],
-  'git+https://github.com/jiaowenjun/weimo-ui-template.git#68b6b093829d87d8d0e9294628f0464cda691edc',
+  'git+https://github.com/jiaowenjun/weimo-ui-template.git#e43ece6686817be031270fe72fee076c1c1957a0',
   'the site template dependency must stay pinned to an immutable commit',
 )
 assert.equal(

@@ -36,3 +36,9 @@
   font-size: var(--font-size-xs);
   font-weight: 400;
 }
+
+/* 详情页 stage 框架下的组件摘要 */
+.component-detail-page__summary {
+  color: var(--color-text-subtle);
+  font-size: var(--font-size-sm);
+}
