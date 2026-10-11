@@ -25,60 +25,6 @@
     min-width: 0;
   }
 
-  .tag-bread .coss-breadcrumb__link {
-    position: relative;
-    z-index: 0;
-    white-space: inherit;
-    /* 命中区横向 5px padding 必须保留正值外边距为零:测量克隆会把克隆内
-       所有 margin 强制清零(core 契约:外边距从不参与测量),若用负 margin
-       抵消占宽,克隆会比真实渲染每链接宽 10px,虚增全部堆到胶囊右侧。 */
-    padding: 0 5px;
-    border-radius: var(--radius-round);
-    transition:
-      color 160ms ease,
-      transform 150ms ease;
-  }
-
-  /* 与 capsule-button/icon-button 同款按压缩放;transform 连同 ::before
-     高亮层一起缩放,不触发布局。 */
-  .tag-bread .coss-breadcrumb__link:active {
-    transform: scale(var(--press-scale));
-  }
-
-  /* 悬停底色走伪元素而非链接自身背景:行盒锁 1em,自身背景画不出更高的
-     底色;伪元素越过行盒垂直居中 24px,仿 capsule-frame 材质层以 z -1
-     垫在文字下。24px 仍留在胶囊 28px 内容带内,不与 28px icon-button
-     溢出带冲突,胶囊 overflow: hidden 也不会裁到它。 */
-  .tag-bread .coss-breadcrumb__link::before {
-    position: absolute;
-    top: calc(50% - 12px);
-    right: 0;
-    bottom: auto;
-    left: 0;
-    z-index: -1;
-    height: 24px;
-    border-radius: inherit;
-    background: color-mix(in srgb, var(--color-bg-hover) 60%, transparent);
-    opacity: 0;
-    transition: opacity 160ms ease;
-    content: '';
-  }
-
-  /* 与 core ghost 控件同款指针门槛;bg-hover 实色对行内文字过重,
-     color-mix 降透明度做低配版,变色反馈仍由 coss-breadcrumb__link:hover 承担。 */
-  @media (hover: hover) and (pointer: fine) {
-    .tag-bread .coss-breadcrumb__link:hover::before {
-      opacity: 1;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .tag-bread .coss-breadcrumb__link,
-    .tag-bread .coss-breadcrumb__link::before {
-      transition-duration: 1ms;
-    }
-  }
-
   .tag-bread .coss-breadcrumb__page {
     display: block;
     flex: 1 1 auto;

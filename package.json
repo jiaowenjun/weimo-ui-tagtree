@@ -25,6 +25,10 @@
       "types": "./dist/components/tag-bread/tag-bread.d.ts",
       "import": "./dist/components/tag-bread/tag-bread.js"
     },
+    "./components/tag-bread-item": {
+      "types": "./dist/components/tag-bread/tag-bread-item.d.ts",
+      "import": "./dist/components/tag-bread/tag-bread-item.js"
+    },
     "./components/tag-tree": {
       "types": "./dist/components/tag-tree/tag-tree.d.ts",
       "import": "./dist/components/tag-tree/tag-tree.js"
