@@ -37,7 +37,7 @@ export function TagBreadItem({
       onClick={handleClick}
       {...props}
     >
-      {children}
+      <span className="tag-bread-item__content">{children}</span>
     </BreadcrumbLink>
   )
 }

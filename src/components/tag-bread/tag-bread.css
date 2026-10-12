@@ -1,12 +1,13 @@
 @layer components {
   .tag-bread {
+    --tag-bread-content-gap: 6px;
     max-width: 100%;
   }
 
   .tag-bread .coss-breadcrumb__list {
     min-width: 0;
     flex-wrap: nowrap;
-    gap: 6px;
+    gap: 0;
     /* 链接悬停伪元素与 icon-button 都要越过 1em 行盒绘制,列表不裁切;
        越界绘制的最外屏障是胶囊 padding box,截断职责由 __page 自有
        overflow 承担。 */
@@ -17,12 +18,25 @@
 
   .tag-bread .coss-breadcrumb__item {
     flex: none;
+    padding-inline: var(--tag-bread-content-gap);
     white-space: nowrap;
+  }
+
+  .tag-bread .coss-breadcrumb__item:first-child {
+    padding-inline-start: 0;
   }
 
   .tag-bread .coss-breadcrumb__item:last-of-type {
     flex: 1 1 auto;
     min-width: 0;
+    padding-inline-end: 0;
+  }
+
+  /* The item owns the visual rhythm around separators. The ellipsis button
+     already has a 6px icon inset inside its 28px hit area, so its item keeps
+     no additional padding and lands on the same visible gap. */
+  .tag-bread .coss-breadcrumb__item:has(.icon-button) {
+    padding-inline: 0;
   }
 
   .tag-bread .coss-breadcrumb__page {
@@ -37,7 +51,7 @@
 
   .tag-bread__item {
     align-items: center;
-    gap: 2px;
+    gap: var(--tag-bread-content-gap);
   }
 
   .tag-bread__prefix {

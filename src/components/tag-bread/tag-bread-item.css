@@ -1,22 +1,28 @@
 @layer components {
-  /* 可独立复用的面包屑可点击项:命中区横向 5px padding 不用负 margin 抵消
-     ——测量克隆(AnimatedInlineSizeMeasure)按 core 契约强制清零克隆内所有
-     margin,负 margin 会让克隆每项宽 10px,虚增全堆到胶囊右侧。 */
+  /* 可独立复用的面包屑可点击项:命中区不参与布局宽度,避免视觉间距被
+     点击保护区撑大。透明扩展层仍覆盖两侧 5px,且不会污染测量克隆。 */
   .tag-bread-item {
+    --tag-bread-hit-extend: 5px;
     position: relative;
     z-index: 0;
+    display: inline-block;
     white-space: inherit;
-    padding: 0 5px;
     border-radius: var(--radius-round);
     transition:
       color 160ms ease,
       transform 150ms ease;
   }
 
+  .tag-bread-item__content {
+    position: relative;
+    z-index: 1;
+  }
+
   /* coss-breadcrumb__link:focus-visible 的 0-2-0 描边圆角规则压过本类
      0-1-0,同特异性别名重述,让聚焦描边与悬停高亮同为胶囊形。 */
   .tag-bread-item:focus-visible {
     border-radius: var(--radius-round);
+    outline: none;
   }
 
   /* 与 capsule-button/icon-button 同款按压缩放;transform 连同 ::before
@@ -32,16 +38,23 @@
   .tag-bread-item::before {
     position: absolute;
     top: calc(50% - 12px);
-    right: 0;
+    right: calc(0px - var(--tag-bread-hit-extend));
     bottom: auto;
-    left: 0;
-    z-index: -1;
+    left: calc(0px - var(--tag-bread-hit-extend));
+    z-index: 0;
     height: 24px;
     border-radius: inherit;
     background: color-mix(in srgb, var(--color-bg-hover) 60%, transparent);
     opacity: 0;
+    pointer-events: auto;
     transition: opacity 160ms ease;
     content: '';
+  }
+
+  .tag-bread-item:focus-visible::before {
+    opacity: 1;
+    outline: 2px solid var(--color-border-accent);
+    outline-offset: 2px;
   }
 
   /* 与 core ghost 控件同款指针门槛;bg-hover 实色对行内文字过重,
