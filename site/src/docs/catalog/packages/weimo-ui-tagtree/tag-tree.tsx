@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { CalendarDays, Folder, Hash } from 'lucide-react'
 
 import { ComponentPreviewCard } from 'weimo-ui-core/components/component-preview-card'
+import { TagBread } from 'weimo-ui-tagtree/components/tag-bread'
 import { TagTree, type TagTreeNode } from 'weimo-ui-tagtree/components/tag-tree'
 import type { ComponentDefinition } from '../../component-docs'
 import { ComponentCardTitle } from '../../component-card-title'
@@ -53,10 +54,31 @@ function TagTreeDemo() {
   )
 }
 
+function TagBreadDemo() {
+  return (
+    <ComponentPreviewCard
+      className="tag-page__card"
+      label={<ComponentCardTitle componentName="tag-bread">标签面包屑</ComponentCardTitle>}
+    >
+      <div className="tag-page__canvas">
+        <div className="tag-page__bread-preview">
+          <TagBread tag="文学/古代/诗词" onSelect={() => {}} />
+          <TagBread tag="文学/古代/诗词/唐诗/李白/静夜思" onSelect={() => {}} />
+        </div>
+      </div>
+    </ComponentPreviewCard>
+  )
+}
+
 export const tagTreeDefinition = {
   id: 'tag-tree',
   summary: '支持展开、选中和节点操作菜单的层级标签导航',
   status: 'Ready',
   frame: 'plain',
-  preview: () => <TagTreeDemo />,
+  preview: () => (
+    <>
+      <TagTreeDemo />
+      <TagBreadDemo />
+    </>
+  ),
 } satisfies ComponentDefinition
