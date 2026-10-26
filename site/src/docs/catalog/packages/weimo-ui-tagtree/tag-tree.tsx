@@ -5,7 +5,6 @@ import { ComponentPreviewCard } from 'weimo-ui-core/components/component-preview
 import { TagBread } from 'weimo-ui-tagtree/components/tag-bread'
 import { TagTree, type TagTreeNode } from 'weimo-ui-tagtree/components/tag-tree'
 import type { ComponentDefinition } from '../../component-docs'
-import { ComponentCardTitle } from '../../component-card-title'
 
 const writingTreeNode: TagTreeNode = {
   tag: 'writing',
@@ -36,7 +35,7 @@ function TagTreeDemo() {
   return (
     <ComponentPreviewCard
       className="tag-page__card"
-      label={<ComponentCardTitle componentName="tag-tree">标签树</ComponentCardTitle>}
+      label="标签树"
     >
       <div className="tag-page__canvas">
         <div className="tag-page__tree-panel">
@@ -58,7 +57,7 @@ function TagBreadDemo() {
   return (
     <ComponentPreviewCard
       className="tag-page__card"
-      label={<ComponentCardTitle componentName="tag-bread">标签面包屑</ComponentCardTitle>}
+      label="标签面包屑"
     >
       <div className="tag-page__canvas">
         <div className="tag-page__bread-preview">
