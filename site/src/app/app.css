@@ -10,17 +10,14 @@
   margin-inline: auto;
 }
 
+/* 卡片画布:面包屑与树面板垂直堆叠、整体居中 */
 .tag-page__canvas {
-  width: 100%;
-  min-width: 0;
-  padding: 16px;
-}
-
-.tag-page__bread-preview {
   display: grid;
   min-width: 0;
+  width: 100%;
   justify-items: center;
   gap: 20px;
+  padding: 16px;
 }
 
 .tag-page__tree-panel {
@@ -32,7 +29,8 @@
   background: var(--color-bg-card);
 }
 
-.component-preview-card:has(.tag-page__bread-preview) .base-card__content {
+/* 面包屑胶囊的毛玻璃边框/阴影需溢出卡片内容区可见 */
+.component-preview-card:has(.tag-bread) .base-card__content {
   overflow: visible;
 }
 

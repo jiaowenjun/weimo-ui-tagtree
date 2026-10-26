@@ -38,6 +38,7 @@ function TagTreeDemo() {
       label="标签树"
     >
       <div className="tag-page__canvas">
+        <TagBread tag="文学/古代/诗词" onSelect={() => {}} />
         <div className="tag-page__tree-panel">
           <TagTree
             defaultExpandedTags={['writing', 'research']}
@@ -53,30 +54,10 @@ function TagTreeDemo() {
   )
 }
 
-function TagBreadDemo() {
-  return (
-    <ComponentPreviewCard
-      className="tag-page__card"
-      label="标签面包屑"
-    >
-      <div className="tag-page__canvas">
-        <div className="tag-page__bread-preview">
-          <TagBread tag="文学/古代/诗词" onSelect={() => {}} />
-        </div>
-      </div>
-    </ComponentPreviewCard>
-  )
-}
-
 export const tagTreeDefinition = {
   id: 'tag-tree',
   summary: '支持展开、选中和节点操作菜单的层级标签导航',
   status: 'Ready',
   frame: 'plain',
-  preview: () => (
-    <>
-      <TagTreeDemo />
-      <TagBreadDemo />
-    </>
-  ),
+  preview: () => <TagTreeDemo />,
 } satisfies ComponentDefinition
