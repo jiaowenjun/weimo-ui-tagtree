@@ -2,11 +2,7 @@ import { useState } from 'react'
 import { CalendarDays, Folder, Hash } from 'lucide-react'
 
 import { ComponentPreviewCard } from 'weimo-ui-core/components/component-preview-card'
-import {
-  TagTree,
-  type TagTreeNode,
-  type TagTreeVariant,
-} from 'weimo-ui-tagtree/components/tag-tree'
+import { TagTree, type TagTreeNode } from 'weimo-ui-tagtree/components/tag-tree'
 import type { ComponentDefinition } from '../../component-docs'
 import { ComponentCardTitle } from '../../component-card-title'
 
@@ -33,17 +29,13 @@ const tagTreeDemoNodes: TagTreeNode[] = [
   { tag: 'archive', label: '归档' },
 ]
 
-function TagTreeDemo({ variant = 'default' }: { variant?: TagTreeVariant }) {
+function TagTreeDemo() {
   const [selectedTag, setSelectedTag] = useState<string | undefined>(undefined)
 
   return (
     <ComponentPreviewCard
       className="tag-page__card"
-      label={
-        <ComponentCardTitle componentName="tag-tree">
-          {variant === 'default' ? '标签树' : '无操作标签树'}
-        </ComponentCardTitle>
-      }
+      label={<ComponentCardTitle componentName="tag-tree">标签树</ComponentCardTitle>}
     >
       <div className="tag-page__canvas">
         <div className="tag-page__tree-panel">
@@ -51,23 +43,13 @@ function TagTreeDemo({ variant = 'default' }: { variant?: TagTreeVariant }) {
             defaultExpandedTags={['writing', 'research']}
             defaultIcon={<Hash aria-hidden="true" />}
             nodes={tagTreeDemoNodes}
-            onMenuAction={variant === 'default' ? () => {} : undefined}
+            onMenuAction={() => {}}
             onSelect={setSelectedTag}
             selectedTag={selectedTag}
-            variant={variant}
           />
         </div>
       </div>
     </ComponentPreviewCard>
-  )
-}
-
-function TagTreePageDemo() {
-  return (
-    <>
-      <TagTreeDemo />
-      <TagTreeDemo variant="no-action" />
-    </>
   )
 }
 
@@ -76,5 +58,5 @@ export const tagTreeDefinition = {
   summary: '支持展开、选中和节点操作菜单的层级标签导航',
   status: 'Ready',
   frame: 'plain',
-  preview: () => <TagTreePageDemo />,
+  preview: () => <TagTreeDemo />,
 } satisfies ComponentDefinition
