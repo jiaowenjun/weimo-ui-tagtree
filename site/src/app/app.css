@@ -1,5 +1,13 @@
+/* 演示卡限宽:hero 满宽(模板 0.3.0)后卡片随视口铺开,
+ * 限回内容最大宽度 token 并居中,与阅读宽度节奏一致;
+ * width:100% 先铺满再被 max-width 封顶——否则 flex 列里
+ * auto 边距会让 stretch 失效、卡片缩成内容宽 */
 .tag-page__card {
+  box-sizing: border-box;
   min-width: 0;
+  width: 100%;
+  max-width: var(--size-content-max-width);
+  margin-inline: auto;
 }
 
 .tag-page__canvas {
