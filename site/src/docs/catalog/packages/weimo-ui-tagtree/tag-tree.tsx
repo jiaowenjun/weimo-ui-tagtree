@@ -62,7 +62,6 @@ function TagBreadDemo() {
       <div className="tag-page__canvas">
         <div className="tag-page__bread-preview">
           <TagBread tag="文学/古代/诗词" onSelect={() => {}} />
-          <TagBread tag="文学/古代/诗词/唐诗/李白/静夜思" onSelect={() => {}} />
         </div>
       </div>
     </ComponentPreviewCard>
