@@ -15,26 +15,6 @@
   gap: 20px;
 }
 
-/* tag-bread-item 独立演示:复刻胶囊内文字行上下文
-   (base 字号、1em 行高、secondary 色),分隔符退为 subtle。 */
-.tag-page__item-preview {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-base);
-  line-height: 1;
-}
-
-.tag-page__item-preview > span {
-  color: var(--color-text-subtle);
-}
-
-.tag-page__item-readout {
-  color: var(--color-text-subtle);
-  font-size: var(--font-size-sm);
-}
-
 .tag-page__tree-panel {
   width: min(100%, 380px);
   margin: 0 auto;
