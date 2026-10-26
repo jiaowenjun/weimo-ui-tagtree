@@ -27,8 +27,8 @@ const sitePackage = JSON.parse(
 
 assert.match(
   docsShell,
-  /from 'weimo-ui-template\/components\/site-template'/,
-  'DocsShell must consume the public site template component',
+  /from 'weimo-ui-template\/components\/mini-site-template'/,
+  'DocsShell must consume the public mini site template component',
 )
 assert.match(
   detailPage,
@@ -78,7 +78,7 @@ for (const forbidden of [
 
 assert.equal(
   sitePackage.dependencies['weimo-ui-template'],
-  '~0.1.0',
+  '~0.3.0',
   'the site template dependency must use the published npm package',
 )
 assert.equal(
