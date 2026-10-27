@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { CalendarDays, Folder, Hash } from 'lucide-react'
 
-import { ComponentPreviewCard } from 'weimo-ui-core/components/component-preview-card'
 import { TagBread } from 'weimo-ui-tagtree/components/tag-bread'
 import { TagTree, type TagTreeNode } from 'weimo-ui-tagtree/components/tag-tree'
 import type { ComponentDefinition } from '../../component-docs'
@@ -48,24 +47,19 @@ function TagTreeDemo() {
   const [selectedTag, setSelectedTag] = useState('写作/日记')
 
   return (
-    <ComponentPreviewCard
-      className="tag-page__card"
-      label="标签树"
-    >
-      <div className="tag-page__canvas">
-        <TagBread tag={selectedTag} onSelect={setSelectedTag} />
-        <div className="tag-page__tree-panel">
-          <TagTree
-            defaultExpandedTags={['写作', '研究']}
-            defaultIcon={<Hash aria-hidden="true" />}
-            nodes={tagTreeDemoNodes}
-            onMenuAction={() => {}}
-            onSelect={setSelectedTag}
-            selectedTag={selectedTag}
-          />
-        </div>
+    <div className="tag-page__canvas">
+      <TagBread tag={selectedTag} onSelect={setSelectedTag} />
+      <div className="tag-page__tree-panel">
+        <TagTree
+          defaultExpandedTags={['写作', '研究']}
+          defaultIcon={<Hash aria-hidden="true" />}
+          nodes={tagTreeDemoNodes}
+          onMenuAction={() => {}}
+          onSelect={setSelectedTag}
+          selectedTag={selectedTag}
+        />
       </div>
-    </ComponentPreviewCard>
+    </div>
   )
 }
 
