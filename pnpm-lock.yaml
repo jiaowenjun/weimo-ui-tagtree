@@ -222,14 +222,14 @@ importers:
         specifier: 8.4.0
         version: 8.4.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       weimo-ui-core:
-        specifier: ~0.2.0
-        version: 0.2.0(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+        specifier: ~0.2.1
+        version: 0.2.1(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       weimo-ui-tagtree:
         specifier: workspace:*
         version: link:..
       weimo-ui-template:
         specifier: ~0.3.0
-        version: 0.3.0(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(weimo-ui-core@0.2.0(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
+        version: 0.3.0(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(weimo-ui-core@0.2.1(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))
     devDependencies:
       '@tailwindcss/vite':
         specifier: ^4.3.3
@@ -1336,8 +1336,8 @@ packages:
       react: ^19.0.0
       react-dom: ^19.0.0
 
-  weimo-ui-core@0.2.0:
-    resolution: {integrity: sha512-P//SZx9ZoDZ5TGlEc8jjeK0S6LrnCftVYD0Nyp46SoVzdynM6im6gxdcYcFfkB/Iy7ULQh62oqB8QXgSXesabg==}
+  weimo-ui-core@0.2.1:
+    resolution: {integrity: sha512-NE4/PCHeCQOzut87THnN4qcef175Ap5DrRGfOHEyIRmlU90FfvX9pjbrlKWPpArhnipyCg8K1KVGJzcl5U1yrQ==}
     peerDependencies:
       '@base-ui/react': ^1.9.0
       react: ^19.0.0
@@ -2175,7 +2175,7 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-  weimo-ui-core@0.2.0(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
+  weimo-ui-core@0.2.1(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0):
     dependencies:
       '@base-ui/react': 1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       class-variance-authority: 0.7.1
@@ -2187,13 +2187,13 @@ snapshots:
     transitivePeerDependencies:
       - '@types/react'
 
-  weimo-ui-template@0.3.0(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(weimo-ui-core@0.2.0(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)):
+  weimo-ui-template@0.3.0(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)(weimo-ui-core@0.2.1(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)):
     dependencies:
       '@base-ui/react': 1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       lucide-react: 1.54.0(@types/react@19.3.0)(react@19.3.0)
       react: 19.3.0
       react-dom: 19.3.0(react@19.3.0)
-      weimo-ui-core: 0.2.0(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
+      weimo-ui-core: 0.2.1(@base-ui/react@1.9.0(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
     transitivePeerDependencies:
       - '@types/react'
 
