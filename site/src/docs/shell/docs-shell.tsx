@@ -34,11 +34,11 @@ export function DocsShell() {
 
   return (
     <MiniSiteTemplate
-      headline="一棵标签树,一条面包屑"
+      headline="标签再多,也不迷路"
       pageTitle={selected?.name}
       showThemeToggle={false}
       siteName="weimo-ui-tagtree"
-      subheadline="层级标签的展开与选中,路径的回溯与直达"
+      subheadline="层级逐级收窄定位,面包屑同步回溯来路"
       topBarActions={
         <FrostedIconButton
           aria-label="GitHub 仓库"
