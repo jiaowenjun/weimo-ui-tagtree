@@ -6,31 +6,31 @@ import { TagBread } from 'weimo-ui-tagtree/components/tag-bread'
 import { TagTree, type TagTreeNode } from 'weimo-ui-tagtree/components/tag-tree'
 import type { ComponentDefinition } from '../../component-docs'
 
-const writingTreeNode: TagTreeNode = {
-  tag: 'writing',
-  label: '写作',
-  icon: <Folder aria-hidden="true" />,
-  children: [
-    { tag: 'writing/daily', label: '日记', icon: <CalendarDays aria-hidden="true" /> },
-    { tag: 'writing/ideas', label: '灵感' },
-  ],
-}
-
+/* 演示数据用中文路径(tag 即层级路径),面包屑分段与树节点标签同源,
+ * 选中态才能在两个组件间双向同步 */
 const tagTreeDemoNodes: TagTreeNode[] = [
-  writingTreeNode,
   {
-    tag: 'research',
-    label: '研究',
+    tag: '写作',
+    label: '写作',
+    icon: <Folder aria-hidden="true" />,
     children: [
-      { tag: 'research/papers', label: '论文' },
-      { tag: 'research/quotes', label: '摘录' },
+      { tag: '写作/日记', label: '日记', icon: <CalendarDays aria-hidden="true" /> },
+      { tag: '写作/灵感', label: '灵感' },
     ],
   },
-  { tag: 'archive', label: '归档' },
+  {
+    tag: '研究',
+    label: '研究',
+    children: [
+      { tag: '研究/论文', label: '论文' },
+      { tag: '研究/摘录', label: '摘录' },
+    ],
+  },
+  { tag: '归档', label: '归档' },
 ]
 
 function TagTreeDemo() {
-  const [selectedTag, setSelectedTag] = useState<string | undefined>(undefined)
+  const [selectedTag, setSelectedTag] = useState('写作/日记')
 
   return (
     <ComponentPreviewCard
@@ -38,10 +38,10 @@ function TagTreeDemo() {
       label="标签树"
     >
       <div className="tag-page__canvas">
-        <TagBread tag="文学/古代/诗词" onSelect={() => {}} />
+        <TagBread tag={selectedTag} onSelect={setSelectedTag} />
         <div className="tag-page__tree-panel">
           <TagTree
-            defaultExpandedTags={['writing', 'research']}
+            defaultExpandedTags={['写作', '研究']}
             defaultIcon={<Hash aria-hidden="true" />}
             nodes={tagTreeDemoNodes}
             onMenuAction={() => {}}
