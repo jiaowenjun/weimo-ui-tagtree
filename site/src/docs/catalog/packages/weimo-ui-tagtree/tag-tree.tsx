@@ -6,7 +6,8 @@ import { TagTree, type TagTreeNode } from 'weimo-ui-tagtree/components/tag-tree'
 import type { ComponentDefinition } from '../../component-docs'
 
 /* 演示数据用中文路径(tag 即层级路径),面包屑分段与树节点标签同源,
- * 选中态才能在两个组件间双向同步 */
+ * 选中态才能在两个组件间双向同步;每个一级标签都带子级,
+ * 手风琴的同级互斥才有展开的对手 */
 const tagTreeDemoNodes: TagTreeNode[] = [
   {
     tag: '写作',
@@ -22,7 +23,11 @@ const tagTreeDemoNodes: TagTreeNode[] = [
           { tag: '写作/日记/夜读', label: '夜读' },
         ],
       },
-      { tag: '写作/灵感', label: '灵感' },
+      {
+        tag: '写作/灵感',
+        label: '灵感',
+        children: [{ tag: '写作/灵感/碎片', label: '碎片' }],
+      },
     ],
   },
   {
@@ -40,18 +45,26 @@ const tagTreeDemoNodes: TagTreeNode[] = [
       { tag: '研究/摘录', label: '摘录' },
     ],
   },
-  { tag: '归档', label: '归档' },
+  {
+    tag: '归档',
+    label: '归档',
+    children: [
+      { tag: '归档/2025', label: '2025' },
+      { tag: '归档/2024', label: '2024' },
+    ],
+  },
 ]
 
 function TagTreeDemo() {
-  const [selectedTag, setSelectedTag] = useState('写作/日记')
+  // 初始选中一级标签:深路径选中会把祖先链强制展开,手风琴就折叠不下来
+  const [selectedTag, setSelectedTag] = useState('写作')
 
   return (
     <div className="tag-page__canvas">
       <TagBread tag={selectedTag} onSelect={setSelectedTag} />
       <div className="tag-page__tree-panel">
         <TagTree
-          defaultExpandedTags={['写作', '研究']}
+          defaultExpandedTags={['写作']}
           defaultIcon={<Hash aria-hidden="true" />}
           nodes={tagTreeDemoNodes}
           onMenuAction={() => {}}
@@ -65,7 +78,7 @@ function TagTreeDemo() {
 
 export const tagTreeDefinition = {
   id: 'tag-tree',
-  summary: '支持展开、选中和节点操作菜单的层级标签导航',
+  summary: '支持展开、选中和节点操作菜单的层级标签导航,手风琴模式下同级子树互斥展开',
   status: 'Ready',
   frame: 'plain',
   preview: () => <TagTreeDemo />,

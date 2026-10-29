@@ -80,6 +80,10 @@ export function TagPanel() {
 
 不想要行内菜单?去掉 `onMenuAction` 即可;或显式声明 `variant="no-action"` 进入纯导航模式。
 
+默认开启手风琴模式:展开一个子树时,自动折叠同级兄弟子树,树面板始终保持紧凑。
+传 `accordion={false}` 可关闭,恢复各子树独立展开 / 折叠;选中标签的祖先链
+始终强制展开,不受手风琴影响。
+
 ### 渲染标签面包屑
 
 ```tsx
@@ -104,6 +108,7 @@ import { TagBread } from 'weimo-ui-tagtree/components/tag-bread'
 | `expandedTags` | `string[]` | — | 受控展开状态 |
 | `onExpandedTagsChange` | `(tags: string[]) => void` | — | 展开 / 收起时回调 |
 | `selectedTag` | `string` | — | 受控选中标签 |
+| `accordion` | `boolean` | `true` | 手风琴模式:展开一个子树时自动折叠同级兄弟子树 |
 | `onSelect` | `(tag, node) => void` | — | 点击行时回调 |
 | `onMenuAction` | `(action, tag, node) => void` | — | 菜单动作回调;传入后才会显示行菜单 |
 | `additionalMenuItems` | `(tag, node) => ActionMenuItem[]` | — | 在内置项之前追加自定义菜单项 |
