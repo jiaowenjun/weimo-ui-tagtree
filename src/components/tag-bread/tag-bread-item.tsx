@@ -3,6 +3,7 @@ import type { ComponentPropsWithoutRef, MouseEvent, ReactNode } from 'react'
 import { cn } from 'weimo-ui-core/lib/utils'
 
 import { BreadcrumbLink } from '../coss/breadcrumb'
+import 'weimo-ui-core/styles/tokens.css'
 import './tag-bread-item.css'
 
 export type TagBreadItemProps = Omit<

@@ -26,6 +26,7 @@ import {
   BreadcrumbSeparator,
 } from '../coss/breadcrumb'
 import { TagBreadItem } from './tag-bread-item'
+import 'weimo-ui-core/styles/tokens.css'
 import 'weimo-ui-core/styles/capsule-frame.css'
 import 'weimo-ui-core/styles/frosted-surface.css'
 import './tag-bread.css'

@@ -1,7 +1,7 @@
 {
   "name": "weimo-ui-tagtree",
   "private": false,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "type": "module",
   "license": "MIT",
   "repository": {
@@ -65,7 +65,8 @@
     "test": "vitest run",
     "check:package": "pnpm build && publint && attw --pack . --profile esm-only --ignore-rules internal-resolution-error",
     "test:site-template": "node scripts/site-template-contract.mjs",
-    "verify": "pnpm typecheck && pnpm test && pnpm test:site-template && pnpm check:package && pnpm --dir site build",
+    "test:css-tokens": "node scripts/css-token-contract.mjs",
+    "verify": "pnpm typecheck && pnpm test && pnpm test:site-template && pnpm check:package && pnpm test:css-tokens && pnpm --dir site build",
     "prepack": "pnpm build"
   },
   "dependencies": {

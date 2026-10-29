@@ -6,6 +6,7 @@ import { TagTreeRow } from './tag-tree-row'
 import { useTagTree } from './use-tag-tree'
 import type { TagTreeNode } from './tag-tree-model'
 
+import 'weimo-ui-core/styles/tokens.css'
 import './tag-tree.css'
 
 export type { TagTreeNode } from './tag-tree-model'
