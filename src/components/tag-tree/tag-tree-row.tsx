@@ -104,6 +104,10 @@ export function TagTreeRow({
           <span className="tag-tree__label">{row.label}</span>
         </button>
 
+        {row.node.itemCount != null ? (
+          <span className="tag-tree__count">{row.node.itemCount}</span>
+        ) : null}
+
         {row.hasChildren ? (
           <GhostIconButton
             aria-label={row.expanded ? `收起 ${row.label}` : `展开 ${row.label}`}

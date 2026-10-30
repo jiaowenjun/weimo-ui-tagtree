@@ -125,6 +125,7 @@ import { TagBread } from 'weimo-ui-tagtree/components/tag-bread'
 | `label` | `string` | 显示名,缺省取路径最后一段 |
 | `icon` | `ReactNode` | 节点图标 |
 | `children` | `TagTreeNode[]` | 子节点 |
+| `itemCount` | `number` | 条目计数,渲染在行尾折叠开关左侧,与开关同占位色;同树各行右对齐 |
 | `menuEnabled` | `boolean` | 设为 `false` 单独关闭该行的操作菜单 |
 
 ### `<TagBread />`

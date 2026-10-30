@@ -13,36 +13,41 @@ const tagTreeDemoNodes: TagTreeNode[] = [
     tag: '写作',
     label: '写作',
     icon: <Folder aria-hidden="true" />,
+    itemCount: 42,
     children: [
       {
         tag: '写作/日记',
         label: '日记',
         icon: <CalendarDays aria-hidden="true" />,
+        itemCount: 30,
         children: [
-          { tag: '写作/日记/晨间', label: '晨间' },
-          { tag: '写作/日记/夜读', label: '夜读' },
+          { tag: '写作/日记/晨间', label: '晨间', itemCount: 18 },
+          { tag: '写作/日记/夜读', label: '夜读', itemCount: 12 },
         ],
       },
       {
         tag: '写作/灵感',
         label: '灵感',
-        children: [{ tag: '写作/灵感/碎片', label: '碎片' }],
+        itemCount: 12,
+        children: [{ tag: '写作/灵感/碎片', label: '碎片', itemCount: 12 }],
       },
     ],
   },
   {
     tag: '研究',
     label: '研究',
+    itemCount: 7,
     children: [
       {
         tag: '研究/论文',
         label: '论文',
+        itemCount: 5,
         children: [
-          { tag: '研究/论文/已发表', label: '已发表' },
-          { tag: '研究/论文/草稿', label: '草稿' },
+          { tag: '研究/论文/已发表', label: '已发表', itemCount: 2 },
+          { tag: '研究/论文/草稿', label: '草稿', itemCount: 3 },
         ],
       },
-      { tag: '研究/摘录', label: '摘录' },
+      { tag: '研究/摘录', label: '摘录', itemCount: 2 },
     ],
   },
   {
