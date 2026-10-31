@@ -1,6 +1,7 @@
 import { useState } from 'react'
-import { CalendarDays, Folder, Hash } from 'lucide-react'
+import { CalendarDays, Folder, Hash, RotateCcw } from 'lucide-react'
 
+import { GhostIconButton } from 'weimo-ui-core/components/ghost-icon-button'
 import { TagBread } from 'weimo-ui-tagtree/components/tag-bread'
 import { TagTree, type TagTreeNode } from 'weimo-ui-tagtree/components/tag-tree'
 import type { ComponentDefinition } from '../../component-docs'
@@ -60,18 +61,49 @@ const tagTreeDemoNodes: TagTreeNode[] = [
   },
 ]
 
+// 模拟计数变动:叶子计数随机,带计数的父级自底向上取子级和(与演示数据
+// 本身的口径一致),驱动行尾计数经 MagicNumber 滚动到新值
+function randomizeItemCounts(nodes: TagTreeNode[]): TagTreeNode[] {
+  return nodes.map((node) => {
+    if (!node.children) {
+      return node.itemCount == null
+        ? node
+        : { ...node, itemCount: Math.round(Math.random() * 60) }
+    }
+
+    const children = randomizeItemCounts(node.children)
+    const childrenTotal = children.reduce(
+      (total, child) => total + (child.itemCount ?? 0),
+      0,
+    )
+    return node.itemCount == null
+      ? { ...node, children }
+      : { ...node, children, itemCount: childrenTotal }
+  })
+}
+
 function TagTreeDemo() {
   // 初始选中一级标签:深路径选中会把祖先链强制展开,手风琴就折叠不下来
   const [selectedTag, setSelectedTag] = useState('写作')
+  const [nodes, setNodes] = useState(tagTreeDemoNodes)
 
   return (
     <div className="tag-page__canvas">
       <TagBread tag={selectedTag} onSelect={setSelectedTag} />
+      <div className="tag-page__demo-actions">
+        <GhostIconButton
+          aria-label="模拟计数变动"
+          onClick={() => setNodes((current) => randomizeItemCounts(current))}
+          size="sm"
+        >
+          <RotateCcw aria-hidden="true" />
+        </GhostIconButton>
+      </div>
       <div className="tag-page__tree-panel">
         <TagTree
           defaultExpandedTags={['写作']}
           defaultIcon={<Hash aria-hidden="true" />}
-          nodes={tagTreeDemoNodes}
+          nodes={nodes}
           onMenuAction={() => {}}
           onSelect={setSelectedTag}
           selectedTag={selectedTag}

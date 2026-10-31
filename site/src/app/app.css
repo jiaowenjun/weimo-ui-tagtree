@@ -20,6 +20,15 @@
   background: var(--color-bg-card);
 }
 
+/* 演示操作行:与树面板同宽,右对齐放「模拟计数变动」按钮;
+ * 负 margin 收紧画布 20px 行距,让按钮贴近它所属的树面板 */
+.tag-page__demo-actions {
+  display: flex;
+  width: min(100%, 380px);
+  justify-content: flex-end;
+  margin: -8px auto -12px;
+}
+
 /* 详情页 stage 框架下的组件摘要 */
 .component-detail-page__summary {
   color: var(--color-text-subtle);
