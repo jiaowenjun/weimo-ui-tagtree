@@ -103,11 +103,10 @@ export function TagTreeRow({
             {icon}
           </span>
           <span className="tag-tree__label">{row.label}</span>
+          {row.node.itemCount != null ? (
+            <MagicNumber className="tag-tree__count" value={row.node.itemCount} />
+          ) : null}
         </button>
-
-        {row.node.itemCount != null ? (
-          <MagicNumber className="tag-tree__count" value={row.node.itemCount} />
-        ) : null}
 
         {row.hasChildren ? (
           <GhostIconButton
