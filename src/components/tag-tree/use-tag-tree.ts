@@ -117,12 +117,17 @@ export function useTagTree({
   }
 
   function handleSelect(row: VisibleTagTreeRow) {
-    if (row.hasChildren && !effectiveExpandedTags.has(row.tag)) {
-      commitExpandedTags(
-        accordion
-          ? expandTagExclusive(explicitExpandedTags, row.tag, nodes)
-          : toggleExpandedTag(explicitExpandedTags, row.tag),
-      )
+    if (row.hasChildren) {
+      if (row.selected) {
+        // 已选中的节点再次点击:切换展开/折叠,语义与箭头按钮一致(含手风琴互斥)
+        handleToggle(row)
+      } else if (!effectiveExpandedTags.has(row.tag)) {
+        commitExpandedTags(
+          accordion
+            ? expandTagExclusive(explicitExpandedTags, row.tag, nodes)
+            : toggleExpandedTag(explicitExpandedTags, row.tag),
+        )
+      }
     }
 
     onSelect?.(row.tag, row.node)
