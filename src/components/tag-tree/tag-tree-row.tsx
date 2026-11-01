@@ -106,7 +106,7 @@ export function TagTreeRow({
         </button>
 
         {row.node.itemCount != null ? (
-          <MagicNumber className="tag-tree__count" duration={300} value={row.node.itemCount} />
+          <MagicNumber className="tag-tree__count" value={row.node.itemCount} />
         ) : null}
 
         {row.hasChildren ? (
